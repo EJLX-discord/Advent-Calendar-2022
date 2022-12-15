@@ -1,10 +1,9 @@
-import type { Entry } from '../api/api'
+import Image from 'next-image-export-optimizer'
+import { parse } from 'discord-markdown-parser'
+import type { DiscordEntry, DiscordUser } from '../pages/index'
 
-import Image from 'next/image'
-
-interface MessageProps {
-  messageInfo: Entry;
-}
+import UserProfile from './UserProfile'
+import EntryNameBar from './EntryNameBar'
 
 function makeCounter() {
   let count = -1
@@ -14,10 +13,9 @@ function makeCounter() {
   }
 }
 
-function convertToHTML(parsedMessage) {
+function convertToHTML(parsedMessage: ReturnType<typeof parse>) {
   const outputElements = []
   const nextKey = makeCounter()
-  console.log(parsedMessage)
   for (const node of parsedMessage) {
     const { type } = node
 
@@ -71,9 +69,9 @@ function convertToHTML(parsedMessage) {
       case 'emoji':
         const emojiPath = (() => {
           if (node.animated) {
-            return `/images/emojis/${node.id}--${node.name}.gif`
+            return `/images/emojis/${node.id}.gif`
           } else {
-            return `/images/emojis/${node.id}--${node.name}.png`
+            return `/images/emojis/${node.id}.webp`
           }
         })()
         outputElements.push(<Image
@@ -83,7 +81,6 @@ function convertToHTML(parsedMessage) {
           height={32}
           alt={node.name}
         />)
-        console.log(emojiPath)
         break
       case 'br':
         outputElements.push(<br key={nextKey()} />)
@@ -120,17 +117,34 @@ function convertToHTML(parsedMessage) {
 }
 
 
+interface MessageProps {
+  messageInfo: DiscordEntry;
+}
+
 export default function Message({ messageInfo }: MessageProps) {
-  const [entryNumber, entryInfo, parsedMessage] = messageInfo
 
-
-
-
+  const parsedMessage = parse(messageInfo.message)
+  console.log(messageInfo.attachments)
   return (
     <div>
-      {convertToHTML(parsedMessage)}
+      <EntryNameBar entryName={messageInfo.id.toString()} />
+      <UserProfile profileInfo={messageInfo.user} />
+      <div>
+        {convertToHTML(parsedMessage)}
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'row', overflowX: 'auto' }}>
+        {messageInfo.attachments.map(attachment => (
+          <Image
+            key={attachment.id}
+            src={`/images/attachments/${attachment.id}--${attachment.name}`}
+            width="0"
+            height="0"
+            style={{ width: '500px', height: 'auto', padding: 10 }}
+            sizes="100vw"
+            alt={attachment.alt ?? `'No alt text included'`}
+          />
+        ))}
+      </div>
     </div>
   )
-
-
 }

@@ -1,89 +1,136 @@
 import path from 'path'
-import fs from 'fs'
-import download from 'image-downloader'
+import { promises as fs } from 'fs'
+import HJSON from 'hjson'
+import { useEffect, useState } from 'react'
 
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-
-import { fetchAllMessages, fetchMessage } from '../api/api'
-import type { Entry } from '../api/api'
+import Link from 'next/link'
 
 import Message from '../components/Message'
+import Sidebar from '../components/Sidebar'
 
-export default function Home({ entries }: { entries: Entry[] }) {
+import styles from '../styles/Home.module.css'
+
+export default function Home({ entries }: { entries: DiscordEntryStore }) {
+  const sortedEntries = Object.entries(entries).sort((a, b) => Number.parseInt(a[0]) - Number.parseInt(b[0]))
+  const entryNamesForSidebar = [
+    {
+      sectionID: 'section-title',
+      displayName: 'Top',
+    },
+    ...sortedEntries.map(([entryIdx, _]) => ({
+      sectionID: `section-${entryIdx}`,
+      displayName: `${entryIdx}`
+    })),
+  ]
+
+  useEffect(() => {
+    let didScroll = false
+    const titleSection = document.querySelector('#section-title')
+    const sections = [titleSection, ...sortedEntries.map(([idx, _]) => document.querySelector(`#section-${idx}`))].filter(x => x !== null) as Element[]
+
+    const mainDiv = document.querySelector('#main') as Element
+    mainDiv.addEventListener('scroll', () => {
+      didScroll = true
+    })
+
+    /* Gets whether the top and bottom of the element is in the viewport */
+    function isInViewport(element: Element) {
+      const rect = element.getBoundingClientRect()
+      return [rect.top >= 0, rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)]
+    }
+
+    function getActiveSection(elements: Element[]) {
+      for (const element of elements) {
+        const [isTopVisible, isBottomVisible] = isInViewport(element)
+        console.log(element.id, isTopVisible, isBottomVisible)
+        if (!isTopVisible && !isBottomVisible) return element
+        if (isTopVisible && isBottomVisible) return element
+        if (isTopVisible && !isBottomVisible) return element
+      }
+      return elements[elements.length - 1]
+    }
+
+    setInterval(() => {
+      if (didScroll) {
+        didScroll = false
+        const activeSelection = getActiveSection(sections)
+        history.replaceState(undefined, '', `#${activeSelection.id}`)
+      }
+    }, 250)
+  }, [sortedEntries]);
+
   return (
-    <div className={styles.container} style={{ scrollSnapType: 'y proximity', maxHeight: '100vh', overflowY: 'scroll', border: '1px solid hotpink' }}>
-      {entries.map((entry, idx) => (
-        <section key={idx} style={{ scrollSnapAlign: 'start', width: '100%', border: '1px solid yellow', fontSize: 16 }}>
-          <Message messageInfo={entry} />
-        </section>
-      ))}
+    <div className={styles['container']}>
+      <Sidebar sectionInfos={entryNamesForSidebar} />
+      <div id={'main'} className={styles['messages-container']}>
+        <div
+          className={styles['message-section']}
+          id={'section-title'}
+          style={{ height: '100vh' }}
+        >
+          Advent Calendar 2022
+        </div>
+        {sortedEntries.map(([entryIdx, entry]) => (
+          <section
+            key={Number.parseInt(entryIdx)}
+            className={styles['message-section']}
+            id={`section-${entryIdx}`}
+          >
+            <Message messageInfo={entry} />
+          </section>
+        ))}
+      </div>
     </div>
   )
 }
-
-/* Goes through the entryInfo and parsedMessage and downloads all required assets
- * to the public/images folder (i.e. user icons and emojis)
- * Some notes:
- *   the discord cdn allows you to choose between png and webp by appending
- *   the extension to the url. Emojis are also all converted to png on their side
- *   regardless of the original format. */
-async function downloadAllAssets([entryNumber, entryInfo, parsedMessage]: Entry) {
-  const avatarURL = entryInfo.user.avatarURL
-  const serverAvatarURL = entryInfo.user.serverAvatarURL
-  const attachments = entryInfo.attachments
-
-  const emojis = [];
-  (function extractEmojis(tokens) {
-    for (const token of tokens) {
-      if (token.type === 'emoji') {
-        emojis.push(token)
-      } else {
-        if (Array.isArray(token?.content)) {
-          extractEmojis(token.content)
-        }
-      }
-    }
-  })(parsedMessage)
-
-  if (avatarURL) {
-    const filename = avatarURL.split('/').pop()
-    const destPath = path.join(process.cwd(), `public/images/user/${filename}`)
-    if (!fs.existsSync(destPath)) {
-      console.log('no exist')
-      await download.image({ url: avatarURL, dest: destPath })
-    }
-  }
-  for (const emoji of emojis) {
-    if (emoji.animated) {
-      const destPath = path.join(process.cwd(), `public/images/emojis/${emoji.id}--${emoji.name}.gif`)
-      if (!fs.existsSync(destPath)) {
-        await download.image({
-          url: `https://cdn.discordapp.com/emojis/${emoji.id}.png`,
-          dest: destPath,
-        })
-      }
-    } else {
-      const destPath = path.join(process.cwd(), `public/images/emojis/${emoji.id}--${emoji.name}.png`)
-      if (!fs.existsSync(destPath)) {
-        await download.image({
-          url: `https://cdn.discordapp.com/emojis/${emoji.id}.png`,
-          dest: destPath,
-        })
-      }
-    }
-  }
+export interface DiscordUser {
+  id: string;
+  username: string;
+  discriminator: string;
+  nickname: string;
+  alt?: string;
+  isGif?: boolean;
 }
 
-export async function getStaticProps(context): Entry[] {
-  const entries = await fetchAllMessages('ac2020')
-  for (const entry of entries) {
-    await downloadAllAssets(entry)
-  }
+export interface Attachment {
+  id: string;
+  name: string;
+  spoiler?: boolean;
+  alt?: string;
+}
 
-  console.dir(entries, { depth: 100 })
-  return {
-    props: { entries },
-  }
+export interface DiscordEntry {
+  id: number;
+  message: string;
+  user: DiscordUser;
+  attachments: Attachment[];
+}
+
+export interface DiscordEntryStore {
+  [key: string]: DiscordEntry
+}
+
+async function getEntryInfo(filePath: string): Promise<DiscordEntry> {
+  const fileData = await fs.readFile(filePath, 'utf8')
+  const entryInfo = HJSON.parse(fileData)
+  return entryInfo
+}
+
+async function getEntriesFromDir(dirName: string): Promise<DiscordEntryStore> {
+  const entries: DiscordEntryStore = {}
+  const entryDirPath = path.join(process.cwd(), dirName)
+  const filenames = await fs.readdir(entryDirPath)
+  await Promise.all(filenames.map(async filename => {
+    const filePath = path.resolve(entryDirPath, filename)
+    const stat = await fs.stat(filePath)
+    if (!stat.isFile()) return
+    const entryInfo = await getEntryInfo(filePath)
+    entries[entryInfo.id.toString()] = entryInfo
+  }))
+  return entries
+}
+
+export async function getStaticProps() {
+  const entries = await getEntriesFromDir('entries')
+  return { props: { entries } }
 }
