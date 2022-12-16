@@ -11,7 +11,8 @@ const nextConfig = {
     nextImageExportOptimizer_quality: 75,
     nextImageExportOptimizer_storePicturesInWEBP: true,
     nextImageExportOptimizer_generateAndUseBlurImages: true,    
-  }
+  },
+  assetPrefix: './',
 }
 
 module.exports = nextConfig

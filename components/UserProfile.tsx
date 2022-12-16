@@ -11,7 +11,7 @@ interface UserProfileProps {
 export default function UserProfile({ profileInfo }: UserProfileProps) {
   const fullName = `${profileInfo.username}#${profileInfo.discriminator}`
   const isGif = profileInfo.isGif ?? false
-  const imageSrc = `/images/user/${profileInfo.id}.${isGif ? 'gif' : 'webp'}`
+  const imageSrc = `./images/user/${profileInfo.id}.${isGif ? 'gif' : 'webp'}`
   return (
     <div className={styles['container']}>
       <div className={styles['image-container']}>

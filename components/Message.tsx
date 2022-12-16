@@ -69,9 +69,9 @@ function convertToHTML(parsedMessage: ReturnType<typeof parse>) {
       case 'emoji':
         const emojiPath = (() => {
           if (node.animated) {
-            return `/images/emojis/${node.id}.gif`
+            return `./images/emojis/${node.id}.gif`
           } else {
-            return `/images/emojis/${node.id}.webp`
+            return `./images/emojis/${node.id}.webp`
           }
         })()
         outputElements.push(<Image
@@ -136,7 +136,7 @@ export default function Message({ messageInfo }: MessageProps) {
         {messageInfo.attachments.map(attachment => (
           <Image
             key={attachment.id}
-            src={`/images/attachments/${attachment.id}--${attachment.name}`}
+            src={`./images/attachments/${attachment.id}--${attachment.name}`}
             width="0"
             height="0"
             style={{ width: '500px', height: 'auto', padding: 10 }}
