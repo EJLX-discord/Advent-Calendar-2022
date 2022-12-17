@@ -1,6 +1,49 @@
 .container {
-  flex: 1 0 75px;
+  width: 75px;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
-  border: 1px solid blue;
+  position: fixed;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background: rgb(35, 36, 38);
+}
+
+.calendar-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 50px;
+  border-bottom: 1px solid white;
+}
+
+.section-button-list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  max-height: auto;
+}
+
+.section-nav-buttons {
+  border-top: 2px solid white;
+  flex: 0 0;
+}
+
+.section-button-grouping {
+  display: flex;
+  border-bottom: 1px solid rgb(105, 105, 105);
+}
+
+.section-indicator {
+  width: 5px;
+  transition: background 0.5s;
+}
+
+.section-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  height: 40px;
 }

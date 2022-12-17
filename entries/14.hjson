@@ -1,0 +1,17 @@
+{
+  id: 14
+  user: {
+    id: '185051004763504640'
+    username: 'oaxith'
+    discriminator: '9001'
+    nickname: 'oaxith | オクシス'
+  }
+  attachments: [{
+    id: '1052412150607528036'
+    name: 'oaxithadventcalendar2022.mp3'
+  }]
+  message:
+'''
+__**2022アドベントカレンダー14：一人称と二人称**__
+'''
+}

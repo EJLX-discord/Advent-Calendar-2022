@@ -5,6 +5,8 @@ import type { DiscordEntry, DiscordUser } from '../pages/index'
 import UserProfile from './UserProfile'
 import EntryNameBar from './EntryNameBar'
 
+import styles from '../styles/Message.module.css'
+
 function makeCounter() {
   let count = -1
   return () => {
@@ -129,21 +131,36 @@ export default function Message({ messageInfo }: MessageProps) {
     <div>
       <EntryNameBar entryName={messageInfo.id.toString()} />
       <UserProfile profileInfo={messageInfo.user} />
-      <div>
+      <div className={styles.entry}>
         {convertToHTML(parsedMessage)}
       </div>
-      <div style={{ display: 'flex', flexDirection: 'row', overflowX: 'auto' }}>
-        {messageInfo.attachments.map(attachment => (
-          <Image
-            key={attachment.id}
-            src={`./images/attachments/${attachment.id}--${attachment.name}`}
-            width="0"
-            height="0"
-            style={{ width: '500px', height: 'auto', padding: 10 }}
-            sizes="100vw"
-            alt={attachment.alt ?? `'No alt text included'`}
-          />
-        ))}
+      <div className={styles['attachment-container']}>
+        {messageInfo.attachments.map(attachment => {
+          if (attachment.name.endsWith('.jpg') || attachment.name.endsWith('.png')) {
+            return (
+              <Image
+                key={attachment.id}
+                src={`./images/attachments/${attachment.id}--${attachment.name}`}
+                width="0"
+                height="0"
+                className={styles['attachment-image']}
+                sizes="100vw"
+                alt={attachment.alt ?? `'No alt text included'`}
+              />
+            )
+          } else if (attachment.name.endsWith('.mp3')) {
+            return (
+              <audio
+                key={attachment.id}
+                controls
+                src={`./assets/${attachment.id}--${attachment.name}`}
+                className={styles['attachment-audio']}
+              >
+                Your browser does not support audio.
+              </audio>
+            )
+          }
+        })}
       </div>
     </div>
   )

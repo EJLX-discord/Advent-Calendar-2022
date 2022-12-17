@@ -1,0 +1,21 @@
+.entry {
+  padding: 20px;
+  background: #202021;
+}
+
+.attachment-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+
+.attachment-image {
+  width: 500px;
+  height: auto;
+  padding: 10px;
+}
+
+.attachment-audio {
+  width: 100%;
+  margin: 20px;
+}
