@@ -1,0 +1,15 @@
+{
+  id: 29
+  user: {
+    id: '238326803003867137'
+    username: 'Adiost'
+    discriminator: '9432'
+    nickname: 'Adiost'
+    alt: ''
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

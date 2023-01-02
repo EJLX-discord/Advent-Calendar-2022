@@ -1,0 +1,18 @@
+{
+  id: 20
+  user: {
+    id: '333972981632204801'
+    username: 'Novelle'
+    discriminator: '8461'
+    nickname: '延（のぼっち）ちゃんは布団の中から出たくない'
+    alt: ''
+    hasServerIcon: false
+    serverIconIsGif: false
+    serverIconAlt: ''
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

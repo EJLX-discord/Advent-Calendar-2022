@@ -1,0 +1,18 @@
+{
+  id: 32
+  user: {
+    id: '439066710109323264'
+    username: 'matsu'
+    discriminator: '3622'
+    nickname: '松雄芭蕉🌸🍌'
+    alt: ''
+    hasServerIcon: true
+    serverIconIsGif: true
+    serverIconAlt: ''
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

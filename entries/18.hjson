@@ -1,0 +1,15 @@
+{
+  id: 18
+  user: {
+    id: '473013785884622848'
+    username: 'ayumminu'
+    discriminator: '5449'
+    nickname: 'ayumminu'
+    alt: 'An animal-shaped cookie with the text "DOG" written in red on it.'
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

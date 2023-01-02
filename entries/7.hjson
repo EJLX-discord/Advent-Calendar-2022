@@ -1,0 +1,16 @@
+{
+  id: 7
+  user: {
+    id: '546655889415864330'
+    username: 'throbbing disco cat'
+    discriminator: '1133'
+    nickname: 'throbbing disco cat'
+    alt: 'A girl with blue hair and a braided ponytail, wearing a dark robe with a star constellation, facing away pensively with their hand to their chin'
+    hasServerIcon: false
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

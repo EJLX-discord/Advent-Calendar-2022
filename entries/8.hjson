@@ -1,0 +1,16 @@
+{
+  id: 8
+  user: {
+    id: '204585600395902976'
+    username: 'wrong_wong_'
+    discriminator: '3224'
+    nickname: 'WrongWong'
+    alt: 'An IRL happy older man with a big grin, yellow headband, and white light radiating from behind'
+    hasServerIcon: false
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

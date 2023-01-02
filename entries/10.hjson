@@ -1,0 +1,15 @@
+{
+  id: 10
+  user: {
+    id: '637638917214175232'
+    username: 'sakkaku'
+    discriminator: '5513'
+    nickname: '🎅Sakkaku・錯覚🤶🔰 👽🏮🍜🌱 0/12'
+    alt: 'A girl in a pink dress holding a microphone, in a panic, with hand on head and surprised expression. A santa hat is edited in.'
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

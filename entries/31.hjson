@@ -1,0 +1,15 @@
+{
+  id: 31
+  user: {
+    id: '742521478062407742'
+    username: 'Madzie'
+    discriminator: '2632'
+    nickname: 'Green Madzie'
+    alt: ''
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

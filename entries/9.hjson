@@ -5,6 +5,7 @@
     username: 'zoop'
     discriminator: '7245'
     nickname: 'zooper market'
+    isGif: true
   }
   attachments: [{
     id: '1050803723674333225'

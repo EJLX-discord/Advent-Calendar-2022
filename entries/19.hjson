@@ -1,0 +1,15 @@
+{
+  id: 19
+  user: {
+    id: '308119653375541248'
+    username: 'sajin'
+    discriminator: '1306'
+    nickname: 'sajin'
+    alt: ''
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

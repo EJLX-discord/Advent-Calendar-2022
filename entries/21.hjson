@@ -1,0 +1,15 @@
+{
+  id: 21
+  user: {
+    id: '107202830846148608'
+    username: 'Skyz'
+    discriminator: '5779'
+    nickname: 'Skyz'
+    alt: 'A pikachu drawn (poorly?) in (probably) Microsoft Paint.'
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

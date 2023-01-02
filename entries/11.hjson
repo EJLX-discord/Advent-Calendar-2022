@@ -1,0 +1,15 @@
+{
+  id: 11
+  user: {
+    id: '654560680426471424'
+    username: 'yuusha'
+    discriminator: '6857'
+    nickname: '燃えろ炎のストライカー田中'
+    alt: 'Green haired person looking over their shoulders badass-like, wearing some sort of animal suit(?)'
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

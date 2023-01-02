@@ -1,0 +1,15 @@
+{
+  id: 28
+  user: {
+    id: '421470232029167617'
+    username: 'Hagane'
+    discriminator: '6837'
+    nickname: 'あけおメッシHagane'
+    alt: ''
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

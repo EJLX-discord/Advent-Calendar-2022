@@ -1,0 +1,15 @@
+{
+  id: 22
+  user: {
+    id: '836610812529082409'
+    username: 'lurk'
+    discriminator: '6645'
+    nickname: 'ugh'
+    alt: ''
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

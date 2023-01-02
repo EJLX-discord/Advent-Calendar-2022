@@ -1,0 +1,18 @@
+{
+  id: 30
+  user: {
+    id: '387005672291696641'
+    username: 'morisi'
+    discriminator: '0002'
+    nickname: '非自然主義的実在論'
+    alt: ''
+    hasServerIcon: true
+    serverIconIsGif: false
+    serverIconAlt: ''
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

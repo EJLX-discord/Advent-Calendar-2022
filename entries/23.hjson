@@ -1,0 +1,16 @@
+{
+  id: 23
+  user: {
+    id: '294441472864944129'
+    username: 'd/Alexis'
+    discriminator: '8015'
+    nickname: '福岡で独りぼっちの関西組の客員'
+    isGif: true
+    alt: ''
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

@@ -1,0 +1,15 @@
+{
+  id: 12
+  user: {
+    id: '420657909475704833'
+    username: 'Balu'
+    discriminator: '7167'
+    nickname: 'Balu1_0'
+    alt: ''
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}

@@ -1,0 +1,16 @@
+{
+  id: 6
+  user: {
+    id: '129805327477506048'
+    username: 'CT_Warrior'
+    discriminator: '6963'
+    nickname: 'CT_Warrior'
+    alt: 'Girl with brown hair and purple eyes'
+    hasServerIcon: false
+  }
+  attachments: []
+  message:
+'''
+
+'''
+}
