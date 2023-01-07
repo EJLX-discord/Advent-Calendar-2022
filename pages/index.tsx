@@ -18,9 +18,9 @@ export default function Home({ entries }: { entries: DiscordEntryStore }) {
       sectionID: 'section-title',
       displayName: 'Top',
     },
-    ...sortedEntries.map(([entryIdx, _]) => ({
+    ...sortedEntries.map(([entryIdx, entry]) => ({
       sectionID: `section-${entryIdx}`,
-      displayName: `${entryIdx}`
+      displayName: entry.date,
     })),
     {
       sectionID: 'section-footer',
@@ -120,6 +120,7 @@ export interface Attachment {
 
 export interface DiscordEntry {
   id: number;
+  date: string;
   message: string;
   user: DiscordUser;
   attachments: Attachment[];

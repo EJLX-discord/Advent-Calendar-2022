@@ -129,7 +129,7 @@ export default function Message({ messageInfo }: MessageProps) {
   console.log(messageInfo.attachments)
   return (
     <div>
-      <EntryNameBar entryName={messageInfo.id.toString()} />
+      <EntryNameBar entryName={messageInfo.date} />
       <UserProfile profileInfo={messageInfo.user} />
       <div className={styles.entry}>
         {convertToHTML(parsedMessage)}
