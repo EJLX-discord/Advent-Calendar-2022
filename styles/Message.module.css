@@ -1,21 +1,33 @@
 .entry {
-  padding: 20px;
-  background: #202021;
+  padding: 20px 30px;
+  background: #1c1c1d;
 }
 
 .attachment-container {
+  display: flex;
+  padding: 20px;
+}
+
+.attachment-flex {
+  direction: rtl;
   display: flex;
   flex-direction: row;
   overflow-x: auto;
 }
 
 .attachment-image {
-  width: 500px;
+  width: 800px;
   height: auto;
   padding: 10px;
 }
 
 .attachment-audio {
-  width: 100%;
+  width: 100vw;
   margin: 20px;
+}
+
+@media (prefers-color-scheme: light) {
+  .entry {
+    background: blue;
+  }
 }

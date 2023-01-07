@@ -22,8 +22,14 @@
   padding: 10px 0;
 }
 
+.banner {
+  max-width: 400px;
+  width: 65vw;
+  height: auto;
+}
+
 .subtitle {
-  font-size: 2rem;
+  font-size: 1.2rem;
   color: #aaa;
 }
 

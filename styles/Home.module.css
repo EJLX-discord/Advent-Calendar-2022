@@ -1,9 +1,9 @@
 .container {
-  padding-left: 75px;
+  padding-left: 100px;
 }
 
 .messages-container {
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y none;
   max-height: 100vh;
   overflow-y: scroll;
 }

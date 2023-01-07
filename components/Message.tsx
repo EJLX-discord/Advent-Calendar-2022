@@ -135,32 +135,36 @@ export default function Message({ messageInfo }: MessageProps) {
         {convertToHTML(parsedMessage)}
       </div>
       <div className={styles['attachment-container']}>
-        {messageInfo.attachments.map(attachment => {
-          if (attachment.name.endsWith('.jpg') || attachment.name.endsWith('.png')) {
-            return (
-              <Image
-                key={attachment.id}
-                src={`./images/attachments/${attachment.id}--${attachment.name}`}
-                width="0"
-                height="0"
-                className={styles['attachment-image']}
-                sizes="100vw"
-                alt={attachment.alt ?? `'No alt text included'`}
-              />
-            )
-          } else if (attachment.name.endsWith('.mp3')) {
-            return (
-              <audio
-                key={attachment.id}
-                controls
-                src={`./assets/${attachment.id}--${attachment.name}`}
-                className={styles['attachment-audio']}
-              >
-                Your browser does not support audio.
-              </audio>
-            )
-          }
-        })}
+        <div className={styles['attachment-flex']}>
+          {messageInfo.attachments.map(attachment => {
+            if (attachment.name.endsWith('.jpg')
+            || attachment.name.endsWith('.png')
+            || attachment.name.endsWith('.gif')) {
+              return (
+                <Image
+                  key={attachment.id}
+                  src={`./images/attachments/${attachment.id}--${attachment.name}`}
+                  width="0"
+                  height="0"
+                  className={styles['attachment-image']}
+                  sizes="100vw"
+                  alt={attachment.alt ?? `'No alt text included'`}
+                />
+              )
+            } else if (attachment.name.endsWith('.mp3')) {
+              return (
+                <audio
+                  key={attachment.id}
+                  controls
+                  src={`./assets/${attachment.id}--${attachment.name}`}
+                  className={styles['attachment-audio']}
+                >
+                  Your browser does not support audio.
+                </audio>
+              )
+            }
+          })}
+        </div>
       </div>
     </div>
   )

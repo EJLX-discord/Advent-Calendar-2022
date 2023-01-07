@@ -11,7 +11,10 @@
     serverIconIsGif: true
     serverIconAlt: ''
   }
-  attachments: []
+  attachments: [{
+    id: '439066710109323264'
+    name: 'never-give-up-fist-pump.gif'
+  }]
   message:
 '''
 
