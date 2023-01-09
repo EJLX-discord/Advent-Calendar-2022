@@ -3,7 +3,7 @@
 }
 
 .messages-container {
-  scroll-snap-type: y none;
+  scroll-snap-type: y proximity;
   max-height: 100vh;
   overflow-y: scroll;
 }
