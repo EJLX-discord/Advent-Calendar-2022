@@ -1,0 +1,12 @@
+.container {
+  cursor: pointer;
+  background: #333;
+  border-radius: 2px;
+}
+
+.spoiler {
+  color: transparent;
+  visibility: hidden;
+  user-select: none;
+  background-color: #666;
+}

@@ -4,6 +4,8 @@ import type { DiscordEntry, DiscordUser } from '../pages/index'
 
 import UserProfile from './UserProfile'
 import EntryNameBar from './EntryNameBar'
+import Spoiler from './Spoiler'
+import BlockQuote from './BlockQuote'
 
 import styles from '../styles/Message.module.css'
 
@@ -60,9 +62,9 @@ function convertToHTML(parsedMessage: ReturnType<typeof parse>) {
       case 'spoiler':
         if (Array.isArray(node.content)) {
           const children = convertToHTML(node.content)
-          outputElements.push(<span key={nextKey()}>{children}</span>)
+          outputElements.push(<Spoiler key={nextKey()}>{children}</Spoiler>)
         } else {
-          outputElements.push(<span key={nextKey()}>{node.content}</span>)
+          outputElements.push(<Spoiler key={nextKey()}>{node.content}</Spoiler>)
         }
         break
       case 'twemoji':
@@ -110,9 +112,9 @@ function convertToHTML(parsedMessage: ReturnType<typeof parse>) {
       case 'blockQuote':
         if (Array.isArray(node.content)) {
           const children = convertToHTML(node.content)
-          outputElements.push(<div key={nextKey()}>{children}</div>)
+          outputElements.push(<BlockQuote key={nextKey()}>{children}</BlockQuote>)
         } else {
-          outputElements.push(<div key={nextKey()}>{node.content}</div>)
+          outputElements.push(<BlockQuote key={nextKey()}>{node.content}</BlockQuote>)
         }
         break
     }
@@ -140,8 +142,8 @@ export default function Message({ messageInfo }: MessageProps) {
         <div className={styles['attachment-flex']}>
           {messageInfo.attachments.map(attachment => {
             if (attachment.name.endsWith('.jpg')
-            || attachment.name.endsWith('.png')
-            || attachment.name.endsWith('.gif')) {
+              || attachment.name.endsWith('.png')
+              || attachment.name.endsWith('.gif')) {
               return (
                 <Image
                   key={attachment.id}
