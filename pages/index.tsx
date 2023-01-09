@@ -22,10 +22,6 @@ export default function Home({ entries }: { entries: DiscordEntryStore }) {
       sectionID: `section-${entryIdx}`,
       displayName: entry.date,
     })),
-    {
-      sectionID: 'section-footer',
-      displayName: 'Bottom',
-    },
   ]
 
   useEffect(() => {
@@ -88,13 +84,6 @@ export default function Home({ entries }: { entries: DiscordEntryStore }) {
             <Message messageInfo={entry} />
           </section>
         ))}
-        <div
-          className={styles['message-section']}
-          id={'section-footer'}
-          style={{ height: '50vh', minHeight: '450px' }}
-        >
-          <TitleCard />
-        </div>
       </div>
     </div>
   )

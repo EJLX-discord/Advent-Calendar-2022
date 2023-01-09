@@ -79,8 +79,10 @@ function convertToHTML(parsedMessage: ReturnType<typeof parse>) {
         outputElements.push(<Image
           key={nextKey()}
           src={emojiPath}
-          width={32}
-          height={32}
+          width="0"
+          height="0"
+          sizes="100vw"
+          className={styles['emoji']}
           alt={node.name}
         />)
         break

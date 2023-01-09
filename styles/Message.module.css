@@ -1,6 +1,12 @@
 .entry {
   padding: 20px 30px;
+  line-height: 1.7rem;
   background: #1c1c1d;
+}
+
+.emoji {
+  width: auto;
+  height: 24px;
 }
 
 .attachment-container {
