@@ -6,10 +6,7 @@
     username: 'Novelle'
     discriminator: '8461'
     nickname: '延（のぼっち）ちゃんは布団の中から出たくない'
-    alt: ''
-    hasServerIcon: false
-    serverIconIsGif: false
-    serverIconAlt: ''
+    alt: 'The back of a man in a squat, possibly in despair, cropped from a manga'
   }
   attachments: []
   message:
