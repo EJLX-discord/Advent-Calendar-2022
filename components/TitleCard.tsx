@@ -38,7 +38,7 @@ export default function TitleCard({ }: TitleCardProps) {
         <h2 className={styles.subtitle}>Presented by the EJLX Server</h2>
         <p className={styles.shoutout}>A 31 day annual writing event on the English-Japanese Language Exchange Discord Server on any topic of choice. Thanks to all the wonderful members who participated this year!</p>
         <div className={styles['links-container']}>
-          <a href={'https://espaspw.github.io/Advent-Calendar-Hub/'}>Previous Years</a>
+          <a href={'https://ejlx-discord.github.io/Advent-Calendar-Hub/'}>Previous Years</a>
           <a href={'https://discord.gg/japanese'}>Join the server</a>
         </div>
         <div id={'title-down-arrow'} className={styles['down-arrow']}><ChevronDown /></div>
