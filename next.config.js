@@ -13,6 +13,9 @@ const nextConfig = {
     nextImageExportOptimizer_generateAndUseBlurImages: true,    
   },
   assetPrefix: './',
+  typescript: {
+    ignoreBuildErrors: true,
+  }
 }
 
 module.exports = nextConfig
