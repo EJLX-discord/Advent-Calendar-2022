@@ -48,7 +48,6 @@ export default function Home({ entries }: { entries: DiscordEntryStore }) {
     function getActiveSection(elements: Element[]) {
       for (const element of elements) {
         const [isTopVisible, isBottomVisible] = isInViewport(element)
-        console.log(element.id, isTopVisible, isBottomVisible)
         if (!isTopVisible && !isBottomVisible) return element
         if (isTopVisible && isBottomVisible) return element
         if (isTopVisible && !isBottomVisible) return element
