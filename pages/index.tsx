@@ -136,7 +136,6 @@ async function getEntriesFromDir(dirName: string): Promise<DiscordEntryStore> {
     const entryInfo = await getEntryInfo(filePath)
     entries[entryInfo.id.toString()] = entryInfo
   }))
-  console.log(entries)
   return entries
 }
 
