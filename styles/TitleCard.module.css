@@ -84,4 +84,13 @@
   .down-arrow {
     color: rgb(86, 89, 94);
   }
+
+  .links-container a {
+    color: inherit;
+  }
+
+  .links-container a:hover {
+    background: #aaa;
+    color: black;
+  }
 }

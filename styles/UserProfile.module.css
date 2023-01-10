@@ -31,3 +31,17 @@
 .username {
   color: rgb(197, 197, 197);
 }
+
+@media (prefers-color-scheme: light) {
+  .container {
+    background: #fafafa;
+  }
+
+  .nickname {
+    color: inherit;
+  }
+
+  .username {
+    color: inherit;
+  }
+}

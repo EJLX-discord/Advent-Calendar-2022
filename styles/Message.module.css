@@ -2,6 +2,7 @@
   padding: 20px 30px;
   line-height: 1.7rem;
   background: #1c1c1d;
+  overflow-wrap: anywhere;
 }
 
 .emoji {
@@ -35,6 +36,6 @@
 
 @media (prefers-color-scheme: light) {
   .entry {
-    background: blue;
+    background: white;
   }
 }

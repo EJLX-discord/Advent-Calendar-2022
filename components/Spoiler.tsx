@@ -13,7 +13,7 @@ export default function EntryNameBar({ children }) {
       )
     } else {
       return (
-        <span>
+        <span className={styles.showing}>
           {children}
         </span>
       )

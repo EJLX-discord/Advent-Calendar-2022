@@ -16,6 +16,7 @@
   align-items: center;
   flex: 0 0 50px;
   border-bottom: 1px solid white;
+  color: white;
 }
 
 .section-button-list {
