@@ -130,7 +130,6 @@ interface MessageProps {
 export default function Message({ messageInfo }: MessageProps) {
 
   const parsedMessage = parse(messageInfo.message)
-  console.log(messageInfo.attachments)
   return (
     <div>
       <EntryNameBar entryName={messageInfo.date} />
