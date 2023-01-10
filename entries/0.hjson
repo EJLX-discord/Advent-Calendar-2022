@@ -1,0 +1,50 @@
+{
+  id: 0
+  date: Intro
+  user: {
+    id: '238326803003867137'
+    username: 'Adiost'
+    discriminator: '9432'
+    nickname: 'Adiost'
+    alt: 'A closeup of the face of a cute brown cat'
+  }
+  attachments: []
+  message:
+'''
+December is almost upon us, and you know what that means - it’s time for the yearly **EJLX Advent Calendar**! From December 1st to December 31st we’ll once again gather together to practice writing in our target languages, share and rejoice!
+
+Every day in December one of the 31 participants will post their submission in advent_calendar. The submissions can be about any topic, as long as it stays within the rules of this server (server_rules), and in any literary format. If you need inspiration, check out the past submissions here: https://ejlx-discord.github.io/Advent-Calendar-Hub/
+
+All submissions have to be in the participant’s target language:
+
+- Those with Native English Speaker and Other language roles must post their submission in Japanese.
+- Those with a Native Japanese Speaker role must post their submission in English.
+
+All participants will be rewarded with a temporary festive role (with a cool color!) and a commemorative role (this one’s permanent!)
+
+**To participate**, please DM @Adiost with your preferred day. Participant registration will be on the first come first serve basis. If, for any reason, you can’t participate on the day you were assigned, please let me know so an exchange of dates with someone else could be arranged.
+
+You’ll be given permissions to post a submission in advent_calendar on your day (0:00-23:59 UTC), but if you can’t make it in time, please don’t hesitate to DM @Adiost
+
+＊　＊　＊ 
+毎年恒例の**EJLXアドベントカレンダー**の季節がやってきます！
+
+2022年12月1日から31日まで参加者は日替わりでadvent_calendarに記事を投稿していただきたいと思います。つきましては、今年も参加者を募集いたします。
+
+【ルール】
+サーバーのルール（server_rules）に則って投稿してください。
+投稿する内容は自分が好きなものや来年の抱負など自由に書くことが出来ます。
+話題が思いつかない場合は今までの参加者の投稿を参考にしてみてください。→ https://ejlx-discord.github.io/Advent-Calendar-Hub/
+但し、書き込みは学習している言語でお願いします。日本語話者の役職が付いている方は英語で、英語話者または他言語話者の役職が付いている方は日本語で書いてください。
+
+イベント開催中、参加者はお名前が特別な色になり、記念の役職が付与されます。
+
+**参加をご希望の方は**参加希望日を記載して@AdiostにDMを送ってください。もし担当の日に都合が悪くなってしまったら、他の方と交代していただいても構いません。
+
+参加者は参加希望日（0:00-23:59 UTC）にadvent_calendarにメッセージを投稿できるようになります。当日の投稿が遅くなる場合はできるだけ早く@Adiostに連絡してください。
+
+みんなで文章力を一緒に磨いて素敵なイベントにしましょう！
+
+＊　＊　＊
+'''
+}

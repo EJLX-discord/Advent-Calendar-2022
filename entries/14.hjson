@@ -1,0 +1,19 @@
+{
+  id: 14
+  date: 12/14 (水)
+  user: {
+    id: '185051004763504640'
+    username: 'oaxith'
+    discriminator: '9001'
+    nickname: 'oaxith | オクシス'
+    alt: 'A mysterious image of formations in outer space, featuring red highlights on a dark blue background'
+  }
+  attachments: [{
+    id: '1052412150607528036'
+    name: 'oaxithadventcalendar2022.mp3'
+  }]
+  message:
+'''
+__**2022アドベントカレンダー14：一人称と二人称**__
+'''
+}

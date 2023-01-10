@@ -1,10 +1,13 @@
 {
   id: 9
+  date: 12/9 (金)
   user: {
     id: '221167310986149888'
     username: 'zoop'
     discriminator: '7245'
     nickname: 'zooper market'
+    isGif: true
+    alt: 'A animated blue face with a santa hat, with a large exagerrated gaping mouth with a rapidly flicking tongue'
   }
   attachments: [{
     id: '1050803723674333225'

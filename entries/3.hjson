@@ -1,10 +1,15 @@
 {
   id: 3
+  date: 12/3 (土)
   user: {
     id: '297635569041801217'
     username: '愛生'
     discriminator: '0110'
     nickname: '(´・∀・｀)'
+    alt: 'A red-haired girl with an ahoge and round cap vibing in a breeze'
+    hasServerIcon: true
+    serverIconIsGif: true
+    serverIconAlt: "A silver-haired vtuber character (I'm sorry, there's so many, I don't know which one) doing an motion displaying excitement, I think"
   }
   attachments: []
   message:

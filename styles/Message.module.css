@@ -1,0 +1,41 @@
+.entry {
+  padding: 20px 30px;
+  line-height: 1.7rem;
+  background: #1c1c1d;
+  overflow-wrap: anywhere;
+}
+
+.emoji {
+  width: auto;
+  height: 24px;
+  vertical-align: text-bottom;
+}
+
+.attachment-container {
+  display: flex;
+  padding: 20px;
+}
+
+.attachment-flex {
+  direction: rtl;
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+
+.attachment-image {
+  width: 800px;
+  height: auto;
+  padding: 10px;
+}
+
+.attachment-audio {
+  width: 100vw;
+  margin: 20px;
+}
+
+@media (prefers-color-scheme: light) {
+  .entry {
+    background: white;
+  }
+}

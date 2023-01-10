@@ -1,0 +1,96 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.text-container {
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+.banner {
+  max-width: 400px;
+  width: 65vw;
+  height: auto;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+.shoutout {
+  padding-top: 50px;
+}
+
+.links-container {
+  display: flex;
+  width: 100%;
+  padding-top: 30px;
+  justify-content: center;
+}
+
+.links-container a {
+  margin: 0 10px;
+  padding: 10px;
+  border: 1px solid #aaa;
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.25s, color 0.25s;
+}
+
+.links-container a:hover {
+  background: #aaa;
+  color: black;
+}
+
+.down-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  color: rgb(194, 194, 194);
+  opacity: 0;
+  transition: opacity 10s ease-in;
+}
+
+@media (prefers-color-scheme: light) {
+  .container {
+    background-color: white;
+    color: rgb(26, 28, 29);
+  }
+
+  .down-arrow {
+    color: rgb(86, 89, 94);
+  }
+
+  .links-container a {
+    color: inherit;
+  }
+
+  .links-container a:hover {
+    background: #aaa;
+    color: black;
+  }
+}

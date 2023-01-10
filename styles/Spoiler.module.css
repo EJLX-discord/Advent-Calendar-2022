@@ -1,0 +1,27 @@
+.container {
+  cursor: pointer;
+  background: #666;
+  border-radius: 2px;
+  user-select: none;
+}
+
+.spoiler {
+  color: transparent;
+  visibility: hidden;
+  border-radius: 2px;
+}
+
+.showing {
+  background: #444;
+  border-radius: 2px;
+}
+
+@media (prefers-color-scheme: light) {
+  .container {
+    background: #bbb;
+  }
+
+  .showing {
+    background: #eee;
+  }
+}

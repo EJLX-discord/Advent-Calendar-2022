@@ -1,0 +1,32 @@
+{
+  id: 30
+  date: 12/30 (金)
+  user: {
+    id: '387005672291696641'
+    username: 'morisi'
+    discriminator: '0002'
+    nickname: '非自然主義的実在論'
+    alt: 'A purpled haired girl with white highlights and cat ears, giving a exasperated pout with small tears in eyes.'
+    hasServerIcon: true
+    serverIconIsGif: false
+    serverIconAlt: 'A monster girl with fangs, with a gaping mouth and hands in a claw grab shape.'
+  }
+  attachments: []
+  message:
+'''
+Why do we learn foreign languages?
+
+When it comes to language learning, it’s getting more and more difficult to find reasons to spend a lot of time for it especially because of the development of machine translation.
+It automatically translates anything you put into it promptly and you don’t even need to know what the language it is. People believed machine translation was not practical enough before, but it has significantly improved with the help of AI. Although it often gets sentences wrong, particularly between languages that are not similar, like English and Japanese, I feel like it’s just a matter of time before machine translation lets us enjoy manga and light novels without using Jisho and you will no longer have to struggle with remembering kanji in the near future. Not only machine translation, but every time I enjoy reading a translated book written in any other language than my native, it makes me wonder whether I can even justify spending countless hours for studying English (including shitposting on discord) in exchange of the number of books I would be able to read if I focused on reading in Japanese.
+
+However, there are things lost in translation. It seems impossible to come up with the way to convey the nuances of each particle has without a profound knowledge of the Japanese language (Even most natives would struggle with explaining the subtle, but important differences). You can consider yourself as an advanced Japanese speaker if you know when to use わ without giving off feminine connotations. Also, we often disregards sounds that words make. What a sentence or a word sounds like is obviously different, no matter how accurate the translation is. For example, if you want to say "I'm coming" and you translate it as "行くよ" in the right context, the meaning would be almost identical. But how it actually sounds to your ears is different. That would significantly affect your experiences in the case of reading poems or lyrics as they are inherently connected with sounds. (There is a movie called "Paterson" that has a reference to translation of poetry. It's funny a Japanese guy appears in the movie with no context)
+
+On another good aspect of language learning, you'll be aware of your thinking framework you use unconsciously by learning grammar and what is considered natural in a language. This might be an oversimplification but in Japanese it's more common to attach words (modifiers) to a verb for describing your actions, while English natives would rather use a different verb instead. I assume every language has this kind of characteristic and knowing that may help you avoid misunderstandings (or maybe not) because of language barriers. 
+
+Language learning is a never ending journey. I often feel lost that I haven't been improving for a long time. But if I were not to try to hone my English skills there should have been so many things I missed without realizing that, and it was impossible to make amazing friends on the server or achieve my current job, which requires English. I'd like to focus more on outputs next year so that I'll be able to hold a conversation in English without having much trouble. 
+
+Translation and interpretation jobs will most likely decline as technology advances but I believe language learning will not lose its attraction as long as there are two or more languages in the world.
+
+Thank you for reading. I wish everyone a happy new year!
+'''
+}

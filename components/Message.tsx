@@ -4,6 +4,10 @@ import type { DiscordEntry, DiscordUser } from '../pages/index'
 
 import UserProfile from './UserProfile'
 import EntryNameBar from './EntryNameBar'
+import Spoiler from './Spoiler'
+import BlockQuote from './BlockQuote'
+
+import styles from '../styles/Message.module.css'
 
 function makeCounter() {
   let count = -1
@@ -58,9 +62,9 @@ function convertToHTML(parsedMessage: ReturnType<typeof parse>) {
       case 'spoiler':
         if (Array.isArray(node.content)) {
           const children = convertToHTML(node.content)
-          outputElements.push(<span key={nextKey()}>{children}</span>)
+          outputElements.push(<Spoiler key={nextKey()}>{children}</Spoiler>)
         } else {
-          outputElements.push(<span key={nextKey()}>{node.content}</span>)
+          outputElements.push(<Spoiler key={nextKey()}>{node.content}</Spoiler>)
         }
         break
       case 'twemoji':
@@ -77,8 +81,10 @@ function convertToHTML(parsedMessage: ReturnType<typeof parse>) {
         outputElements.push(<Image
           key={nextKey()}
           src={emojiPath}
-          width={32}
-          height={32}
+          width="0"
+          height="0"
+          sizes="100vw"
+          className={styles['emoji']}
           alt={node.name}
         />)
         break
@@ -106,9 +112,9 @@ function convertToHTML(parsedMessage: ReturnType<typeof parse>) {
       case 'blockQuote':
         if (Array.isArray(node.content)) {
           const children = convertToHTML(node.content)
-          outputElements.push(<div key={nextKey()}>{children}</div>)
+          outputElements.push(<BlockQuote key={nextKey()}>{children}</BlockQuote>)
         } else {
-          outputElements.push(<div key={nextKey()}>{node.content}</div>)
+          outputElements.push(<BlockQuote key={nextKey()}>{node.content}</BlockQuote>)
         }
         break
     }
@@ -127,24 +133,45 @@ export default function Message({ messageInfo }: MessageProps) {
   console.log(messageInfo.attachments)
   return (
     <div>
-      <EntryNameBar entryName={messageInfo.id.toString()} />
+      <EntryNameBar entryName={messageInfo.date} />
       <UserProfile profileInfo={messageInfo.user} />
-      <div>
+      <div className={styles.entry}>
         {convertToHTML(parsedMessage)}
       </div>
-      <div style={{ display: 'flex', flexDirection: 'row', overflowX: 'auto' }}>
-        {messageInfo.attachments.map(attachment => (
-          <Image
-            key={attachment.id}
-            src={`./images/attachments/${attachment.id}--${attachment.name}`}
-            width="0"
-            height="0"
-            style={{ width: '500px', height: 'auto', padding: 10 }}
-            sizes="100vw"
-            alt={attachment.alt ?? `'No alt text included'`}
-          />
-        ))}
-      </div>
+      {messageInfo.attachments.length > 0 && (
+        <div className={styles['attachment-container']}>
+          <div className={styles['attachment-flex']}>
+            {messageInfo.attachments.map(attachment => {
+              if (attachment.name.endsWith('.jpg')
+                || attachment.name.endsWith('.png')
+                || attachment.name.endsWith('.gif')) {
+                return (
+                  <Image
+                    key={attachment.id}
+                    src={`./images/attachments/${attachment.id}--${attachment.name}`}
+                    width="0"
+                    height="0"
+                    className={styles['attachment-image']}
+                    sizes="100vw"
+                    alt={attachment.alt ?? `'No alt text included'`}
+                  />
+                )
+              } else if (attachment.name.endsWith('.mp3')) {
+                return (
+                  <audio
+                    key={attachment.id}
+                    controls
+                    src={`./assets/${attachment.id}--${attachment.name}`}
+                    className={styles['attachment-audio']}
+                  >
+                    Your browser does not support audio.
+                  </audio>
+                )
+              }
+            })}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -1,17 +1,15 @@
 .container {
-  display: flex;
+  padding-left: 100px;
 }
 
 .messages-container {
   scroll-snap-type: y proximity;
   max-height: 100vh;
   overflow-y: scroll;
-  border: 1px solid hotpink;
 }
 
 .message-section {
   scroll-snap-align: start;
   width: 100%;
-  border: 1px solid yellow;
   font-size: 1rem;
 }

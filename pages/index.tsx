@@ -7,6 +7,7 @@ import Link from 'next/link'
 
 import Message from '../components/Message'
 import Sidebar from '../components/Sidebar'
+import TitleCard from '../components/TitleCard'
 
 import styles from '../styles/Home.module.css'
 
@@ -17,16 +18,21 @@ export default function Home({ entries }: { entries: DiscordEntryStore }) {
       sectionID: 'section-title',
       displayName: 'Top',
     },
-    ...sortedEntries.map(([entryIdx, _]) => ({
+    ...sortedEntries.map(([entryIdx, entry]) => ({
       sectionID: `section-${entryIdx}`,
-      displayName: `${entryIdx}`
+      displayName: entry.date,
     })),
   ]
 
   useEffect(() => {
     let didScroll = false
     const titleSection = document.querySelector('#section-title')
-    const sections = [titleSection, ...sortedEntries.map(([idx, _]) => document.querySelector(`#section-${idx}`))].filter(x => x !== null) as Element[]
+    const footerSection = document.querySelector('#section-footer')
+    const sections = [
+      titleSection,
+      ...sortedEntries.map(([idx, _]) => document.querySelector(`#section-${idx}`)),
+      footerSection,
+    ].filter(x => x !== null) as Element[]
 
     const mainDiv = document.querySelector('#main') as Element
     mainDiv.addEventListener('scroll', () => {
@@ -42,7 +48,6 @@ export default function Home({ entries }: { entries: DiscordEntryStore }) {
     function getActiveSection(elements: Element[]) {
       for (const element of elements) {
         const [isTopVisible, isBottomVisible] = isInViewport(element)
-        console.log(element.id, isTopVisible, isBottomVisible)
         if (!isTopVisible && !isBottomVisible) return element
         if (isTopVisible && isBottomVisible) return element
         if (isTopVisible && !isBottomVisible) return element
@@ -66,9 +71,9 @@ export default function Home({ entries }: { entries: DiscordEntryStore }) {
         <div
           className={styles['message-section']}
           id={'section-title'}
-          style={{ height: '100vh' }}
+          style={{ height: '100vh', minHeight: '450px' }}
         >
-          Advent Calendar 2022
+          <TitleCard />
         </div>
         {sortedEntries.map(([entryIdx, entry]) => (
           <section
@@ -90,6 +95,9 @@ export interface DiscordUser {
   nickname: string;
   alt?: string;
   isGif?: boolean;
+  hasServerIcon?: boolean;
+  serverIconIsGif?: boolean;
+  serverIconAlt?: string;
 }
 
 export interface Attachment {
@@ -101,6 +109,7 @@ export interface Attachment {
 
 export interface DiscordEntry {
   id: number;
+  date: string;
   message: string;
   user: DiscordUser;
   attachments: Attachment[];
@@ -127,6 +136,7 @@ async function getEntriesFromDir(dirName: string): Promise<DiscordEntryStore> {
     const entryInfo = await getEntryInfo(filePath)
     entries[entryInfo.id.toString()] = entryInfo
   }))
+  console.log(entries)
   return entries
 }
 

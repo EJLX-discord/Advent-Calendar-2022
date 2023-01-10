@@ -1,7 +1,8 @@
 .container {
   display: flex;
-  background: #faf5f0;
+  background: #3a3938;
   height: 90px;
+  padding: 0 20px;
 }
 
 .image-container {
@@ -23,10 +24,24 @@
 }
 
 .nickname {
-  color: #262322;
+  color: #faf5f0;
   font-size: 1.2rem;
 }
 
 .username {
-  color: #aaa;
+  color: rgb(197, 197, 197);
+}
+
+@media (prefers-color-scheme: light) {
+  .container {
+    background: #fafafa;
+  }
+
+  .nickname {
+    color: inherit;
+  }
+
+  .username {
+    color: inherit;
+  }
 }
