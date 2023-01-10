@@ -42,12 +42,13 @@ export default function Home({ entries }: { entries: DiscordEntryStore }) {
     /* Gets whether the top and bottom of the element is in the viewport */
     function isInViewport(element: Element) {
       const rect = element.getBoundingClientRect()
-      return [rect.top >= 0, rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)]
+      return [rect.top >= -10, rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)]
     }
 
     function getActiveSection(elements: Element[]) {
       for (const element of elements) {
         const [isTopVisible, isBottomVisible] = isInViewport(element)
+        console.log(element.id, isTopVisible, isBottomVisible)
         if (!isTopVisible && !isBottomVisible) return element
         if (isTopVisible && isBottomVisible) return element
         if (isTopVisible && !isBottomVisible) return element
